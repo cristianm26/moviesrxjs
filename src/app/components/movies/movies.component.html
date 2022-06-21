@@ -1,0 +1,24 @@
+<div class="app">
+  <h1>Listado de Peliculas</h1>
+  <div class="search">
+    <input type="text" #movieSearchInput placeholder="Buscar..." />
+    <!--   <input type="text" (keyup)="getMoviesT($event)" placeholder="Buscar..." /> -->
+    <!--
+    Metodo para buscar peliculas mediante un boton de buscar
+    <input type="text" #search placeholder="Buscar Pelicula" />
+    <img
+      (click)="getMovies(search.value)"
+      src="../../../assets/search.svg"
+      alt=""
+    /> -->
+  </div>
+  <div *ngIf="movies.length > 0; else empty" class="container">
+    <app-card-movie
+      *ngFor="let movie of movies"
+      [movie]="movie"
+    ></app-card-movie>
+  </div>
+  <ng-template #empty class="empty">
+    <h2>No hay peliculas</h2>
+  </ng-template>
+</div>
